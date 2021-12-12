@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import format from 'date-fns/format';
 
-import { ReactComponent as ReactLogo } from 'images/gear.svg';
-import styles from './App.module.css';
+import { ReactComponent as ReactLogo } from './images/gear.svg';
+import styles from './index.module.css';
 
 const INITIAL_MAX_TIME = 1000 * 60 * 15; // 15 minutes
 const INITIAL_PROGRESS_RING_STYLE = { backgroundColor: `var(--green)` };
@@ -13,7 +13,7 @@ const getMsTime = (formattedTime) => {
   return 1000 * 60 * time[0] + 1000 * time[1];
 };
 
-const App = () => {
+const Pomodoro = () => {
   const [maxTime, setMaxTime] = useState(INITIAL_MAX_TIME);
   const [currentTime, setCurrentTime] = useState(maxTime);
   const [inputTime, setInputTime] = useState(getFormattedTime(maxTime));
@@ -127,4 +127,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Pomodoro;

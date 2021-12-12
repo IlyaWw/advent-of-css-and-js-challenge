@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.root {
+  position: fixed;
+  z-index: 1000;
+  text-decoration: none;
+  color: white;
+  padding: 4px;
+  transition: 0.3s ease-out;
+  width: 10px;
+  overflow: clip;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.root:hover {
+  background: white;
+  color: #2b2a30;
+  content: '&#10094; Home';
+  width: 62px;
+}
+
+.root:hover span:after {
+  content: 'Home';
+}
