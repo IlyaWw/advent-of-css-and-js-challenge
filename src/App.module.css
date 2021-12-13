@@ -5,16 +5,18 @@
   z-index: 1000;
   text-decoration: none;
   color: white;
+  background-color: #2b2a30;
   padding: 4px;
   transition: 0.3s ease-out;
   width: 10px;
   overflow: clip;
   white-space: nowrap;
+  border-radius: 4px;
   font-family: 'Montserrat', sans-serif;
 }
 
 .root:hover {
-  background: white;
+  background-color: white;
   color: #2b2a30;
   content: '&#10094; Home';
   width: 62px;

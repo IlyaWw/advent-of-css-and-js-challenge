@@ -8,3 +8,11 @@
 .root img {
   width: 100%;
 }
+
+.doubleWide {
+  grid-column: span 2;
+}
+
+.doubleTall {
+  grid-row: span 2;
+}

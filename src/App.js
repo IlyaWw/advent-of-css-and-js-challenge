@@ -7,11 +7,11 @@ import {
   Link,
 } from 'react-router-dom';
 
+import { routes } from './routesConfig';
 import Loading from 'components/common/Loading';
 import styles from './App.module.css';
 
 const Home = lazy(() => import('components/Home'));
-const Pomodoro = lazy(() => import('components/Pomodoro'));
 const Page404 = lazy(() => import('components/Page404'));
 
 const App = () => {
@@ -22,7 +22,13 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<Layout />}>
-              <Route path="pomodoro" element={<Pomodoro />} />
+              {routes.map((page) => (
+                <Route
+                  key={page.path}
+                  path={page.path}
+                  element={<page.element />}
+                />
+              ))}
               <Route path="*" element={<Page404 />} />
             </Route>
           </Routes>

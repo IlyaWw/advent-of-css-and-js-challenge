@@ -7,8 +7,10 @@ The challenges are rendered on different pages of a single app. Home page menu i
 ## Challenge briefs
 
 1. [Pomodoro timer](challenges/1/README.md)
+2. [eCommerce component](challenges/2/README.md)
 
 ## Other info
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 [React Router v6](https://reactrouter.com/) is used for page routing.
