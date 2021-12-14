@@ -6,6 +6,7 @@ import styles from './index.module.css';
 
 const INITIAL_MAX_TIME = 1000 * 60 * 15; // 15 minutes
 const INITIAL_PROGRESS_RING_STYLE = { backgroundColor: `var(--green)` };
+
 const getFormattedTime = (ms) => format(ms, 'mm:ss');
 
 const getMsTime = (formattedTime) => {
@@ -15,7 +16,6 @@ const getMsTime = (formattedTime) => {
 
 const Pomodoro = () => {
   const [maxTime, setMaxTime] = useState(INITIAL_MAX_TIME);
-  const [currentTime, setCurrentTime] = useState(maxTime);
   const [inputTime, setInputTime] = useState(getFormattedTime(maxTime));
   const [isValidTime, setIsValidTime] = useState(true);
   const [isRun, setIsRun] = useState(false);
@@ -24,10 +24,23 @@ const Pomodoro = () => {
     INITIAL_PROGRESS_RING_STYLE
   );
   const timerIdRef = useRef(0);
+  const timeInputRef = useRef(null);
 
   const startEditing = () => {
+    timeInputRef.current.focus();
     setIsRun(false);
     setIsEdit(true);
+  };
+
+  const handleStartStop = () => {
+    if (isRun) {
+      setIsRun(false);
+    } else {
+      setMaxTime(getMsTime(inputTime));
+      setProgressRingStyle(INITIAL_PROGRESS_RING_STYLE);
+      setIsEdit(false);
+      setIsRun(true);
+    }
   };
 
   const handleTimeInput = (e) => {
@@ -38,28 +51,15 @@ const Pomodoro = () => {
     setIsValidTime(isValid);
   };
 
-  const handleEditCommit = () => {
-    const newTime = getMsTime(inputTime);
-    setMaxTime(newTime);
-    setCurrentTime(newTime);
-    setProgressRingStyle(INITIAL_PROGRESS_RING_STYLE);
-    setIsEdit(false);
-  };
-
-  const handleEditCancel = () => {
-    setIsEdit(false);
-    setInputTime(getFormattedTime(maxTime));
-  };
-
   useEffect(() => {
     if (!isRun) clearTimeout(timerIdRef.current);
     else {
-      if (currentTime === 0) {
+      if (getMsTime(inputTime) === 0) {
         setIsRun(false);
         alert('Timer goes off');
       } else {
         const timerId = setTimeout(() => {
-          const newTime = currentTime - 1000;
+          const newTime = getMsTime(inputTime) - 1000;
           const progress = (newTime / maxTime) * 360;
 
           setProgressRingStyle(
@@ -69,57 +69,37 @@ const Pomodoro = () => {
                   backgroundImage: `conic-gradient(from 180deg, var(--green) ${progress}deg, black ${progress}deg)`,
                 }
           );
-          setCurrentTime(newTime);
+          setInputTime(getFormattedTime(newTime));
         }, 1000);
         timerIdRef.current = timerId;
       }
     }
-  }, [isRun, currentTime, maxTime]);
+  }, [isRun, inputTime, maxTime]);
 
   return (
     <div className={styles.root}>
       <div className={styles.progressRing} style={progressRingStyle}>
         <div className={styles.clock}>
-          {isEdit ? (
-            <input
-              className={styles.timeInput}
-              value={inputTime}
-              onChange={handleTimeInput}
-            />
-          ) : (
-            <div className={styles.time}>{getFormattedTime(currentTime)}</div>
-          )}
+          <input
+            ref={timeInputRef}
+            className={styles.timeInput}
+            value={inputTime}
+            onChange={handleTimeInput}
+            readOnly={!isEdit}
+          />
           <div className={styles.buttonWrapper}>
             <button
-              disabled={isEdit}
+              disabled={!isValidTime}
               className={styles.startStopButton}
-              onClick={() => setIsRun(!isRun)}
+              onClick={handleStartStop}
             >
               {isRun ? 'STOP' : 'START'}
             </button>
           </div>
           <div className={styles.iconButtonWrapper}>
-            {isEdit ? (
-              <>
-                <button
-                  disabled={!isValidTime}
-                  className={styles.iconButtonCommit}
-                  onClick={handleEditCommit}
-                >
-                  ✔
-                </button>
-                <button
-                  className={styles.iconButtonCancel}
-                  onClick={handleEditCancel}
-                >
-                  ✘
-                </button>
-              </>
-            ) : (
-              <button className={styles.iconButton} onClick={startEditing}>
-                <ReactLogo />
-              </button>
-            )}
+            <button className={styles.iconButton} onClick={startEditing}>
+              <ReactLogo />
+            </button>
           </div>
         </div>
       </div>

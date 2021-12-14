@@ -1,9 +1,15 @@
-@import 'styleguide.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 @font-face {
   font-family: 'bebasneue';
   src: url('fonts/bebasneue-book-webfont.woff2') format('woff2'),
     url('fonts/bebasneue-book-webfont.woff') format('woff');
+}
+
+:root {
+  --background: #2b2a30;
+  --red: #9d0000;
+  --green: #00aa51;
+  --diameter: min(500px, 80vmin);
 }
 
 .root {
@@ -20,8 +26,8 @@
 }
 
 .progressRing {
-  height: 518px;
-  width: 518px;
+  height: calc(var(--diameter) + 18px);
+  width: calc(var(--diameter) + 18px);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -31,8 +37,8 @@
 
 .clock {
   position: relative;
-  height: 500px;
-  width: 500px;
+  height: var(--diameter);
+  width: var(--diameter);
   text-align: center;
   border-radius: 50%;
   background: radial-gradient(
@@ -43,23 +49,18 @@
   box-shadow: inset 0px 0px 114px rgba(0, 0, 0, 0.45);
 }
 
-.time {
-  margin-top: 152px;
-  margin-bottom: 23px;
-  font-size: 196px;
-  line-height: 196px;
+.timeInput {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: 'bebasneue', Courier, monospace;
-}
-
-.timeInput {
-  composes: time;
   background: none;
   border: none;
   color: white;
-  width: 322px;
-  margin-top: 143px;
-  margin-bottom: 15px;
+  text-align: center;
+  font-size: calc(var(--diameter) * 0.4);
+  line-height: calc(var(--diameter) * 0.4);
+  width: calc(var(--diameter) * 0.68);
+  margin-top: calc(var(--diameter) * 0.28);
+  margin-bottom: calc(var(--diameter) * 0.03);
 }
 
 .startStopButton {
@@ -67,8 +68,8 @@
   border: none;
   color: white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: calc(var(--diameter) * 0.032);
+  line-height: calc(var(--diameter) * 0.04);
   letter-spacing: 0.6em;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
@@ -81,27 +82,12 @@
 }
 
 .iconButtonWrapper {
-  margin-top: 30px;
+  margin-top: calc(var(--diameter) * 0.06);
 }
 
 .iconButton {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 24px;
-}
-
-.iconButton:disabled {
-  color: #585858;
-  cursor: auto;
-}
-
-.iconButtonCommit {
-  composes: iconButton;
-  color: var(--green);
-}
-
-.iconButtonCancel {
-  composes: iconButton;
-  color: var(--red);
+  font-size: calc(var(--diameter) * 0.048);
 }

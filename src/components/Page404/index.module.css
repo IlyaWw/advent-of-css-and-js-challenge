@@ -1,8 +1,6 @@
-@import 'styleguide.css';
-
 .root {
   font-size: 200px;
-  color: var(--red);
+  color: #9d0000;
   display: flex;
   justify-content: center;
   height: 100vh;

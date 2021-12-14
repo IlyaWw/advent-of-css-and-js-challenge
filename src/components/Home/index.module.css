@@ -5,8 +5,17 @@
   max-width: 1000px;
 }
 
+.root a[href='/'] {
+  opacity: 0.5;
+}
+
 .root img {
   width: 100%;
+  transition: transform 0.2s;
+}
+
+.root a:not([href='/']) img:hover {
+  transform: scale(1.05);
 }
 
 .doubleWide {
