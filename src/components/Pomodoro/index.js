@@ -77,7 +77,7 @@ const Pomodoro = () => {
   }, [isRun, inputTime, maxTime]);
 
   return (
-    <div className={styles.root}>
+    <main className={styles.root}>
       <div className={styles.progressRing} style={progressRingStyle}>
         <div className={styles.clock}>
           <input
@@ -103,7 +103,7 @@ const Pomodoro = () => {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

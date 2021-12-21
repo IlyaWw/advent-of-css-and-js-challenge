@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+:root {
+  --background-color: #eff0f6;
+  --border-color: #d7d6fc;
+  --primary-purple: #6b00f5;
+
+  --card-height: 80vh;
+  --card-header-line-height: 48px;
+  --card-header-margin-top: 5vh;
+  --card-header-margin-btm: 2vh;
+}
+
+.root {
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+}
+
+.bgLeft {
+  position: absolute;
+  top: calc((100vh - 588px) / 2);
+}
+
+.bgTopRight {
+  position: absolute;
+  right: 0px;
+}
+
+.bgBtmRight {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+.cardWrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw;
+}
+
+.card {
+  height: var(--card-height);
+  width: 375px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 70px #c7cbe3;
+  background-color: white;
+}
+
+.cardHeader {
+  position: relative;
+  margin: var(--card-header-margin-top) 25px var(--card-header-margin-btm);
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.cardBodyWrapper {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.cardBody {
+  overflow-y: scroll;
+  max-height: calc(
+    var(--card-height) - var(--card-header-margin-top) -
+      var(--card-header-margin-btm) - var(--card-header-line-height)
+  );
+  padding-left: 25px;
+  margin-right: -100px;
+  padding-right: 85px;
+}
+
+.menuItem {
+  border-radius: 20px 0px 0px 20px;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  display: flex;
+}
+
+.menuItem img {
+  height: 120px;
+  width: 120px;
+  transform: translate(-20px, -20px);
+}
+
+.menuItemDescription {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItemName {
+  font-size: 18px;
+  line-height: 20px;
+  margin: 16px 0px;
+}
+
+.menuItemPrice {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bold;
+}
+
+.menuItemButton {
+  color: white;
+  background-color: var(--primary-purple);
+  position: relative;
+  bottom: -20px;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 4px 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  width: 130px;
+}
+
+.menuItemButtonSelected {
+  composes: menuItemButton;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: default;
+}
+
+.cartItem {
+  display: flex;
+  position: relative;
+}
+
+.cartItem img {
+  height: 64px;
+  width: 64px;
+}
+
+.cartItemQuantityImage {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.cartItemDescription {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.cartItemName {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.cartItemPrice {
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: bold;
+}
+
+.cartItemQuantity {
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: bold;
+  width: 32px;
+  text-align: center;
+}
+
+.cartItemPriceSum {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: end;
+  flex-grow: 1;
+}
+
+.cartItemControl {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.substractButton {
+  background-color: var(--primary-purple);
+  height: 32px;
+  width: 32px;
+  padding-top: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.addButton {
+  composes: substractButton;
+  transform: rotate(180deg);
+}
+
+.horisontalLine {
+  margin-bottom: 16px;
+  margin-top: 16px;
+  margin-right: 25px;
+  border-bottom: var(--border-color) solid 1px;
+}
+
+.horisontalLineLast {
+  composes: horisontalLine;
+  border-bottom-width: 5px;
+}
+
+.cartItemTotal {
+  display: grid;
+  grid-template-columns: 1fr 0fr;
+  justify-items: end;
+  align-items: end;
+  margin-right: 25px;
+}
+
+.cartItemTotalKey {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 2rem;
+}
+
+.cartItemTotalValue {
+  font-size: 32px;
+  font-weight: bold;
+  margin-left: 25px;
+}
+
+.cartItemTotalValuePurple {
+  composes: cartItemTotalValue;
+  color: var(--primary-purple);
+}
