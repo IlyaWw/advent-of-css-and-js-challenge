@@ -44,13 +44,20 @@ const ECommerce = () => {
 
     if (quantity > 1)
       setSelectedItems({ ...selectedItems, [name]: quantity - 1 });
-    else
-      setSelectedItems(
-        Object.keys(selectedItems).reduce((filtered, item) => {
-          if (item !== name) filtered[item] = selectedItems[item];
-          return filtered;
-        }, {})
+    else {
+      const remove = window.confirm(
+        `Do you want to remove ${name} from your cart?`
       );
+
+      if (remove) {
+        setSelectedItems(
+          Object.keys(selectedItems).reduce((filtered, item) => {
+            if (item !== name) filtered[item] = selectedItems[item];
+            return filtered;
+          }, {})
+        );
+      }
+    }
   };
 
   const increaseQuantity = (e) => {
