@@ -2,6 +2,7 @@ import { lazy } from 'react';
 
 export const POMODORO_URL = '/pomodoro';
 export const ECOMMERCE_URL = '/ecommerce';
+export const PIANO_URL = '/piano';
 
 const pomodoro = {
   element: lazy(() => import(`components/Pomodoro`)),
@@ -13,4 +14,9 @@ const ecommerce = {
   path: 'ecommerce',
 };
 
-export const routes = [pomodoro, ecommerce];
+const piano = {
+  element: lazy(() => import(`components/Piano`)),
+  path: 'piano',
+};
+
+export const routes = [pomodoro, ecommerce, piano];

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { POMODORO_URL, ECOMMERCE_URL } from 'routesConfig';
+import { POMODORO_URL, ECOMMERCE_URL, PIANO_URL } from 'routesConfig';
 import day1 from './images/day-1.svg';
 import day2 from './images/day-2.svg';
 import day3 from './images/day-3.svg';
@@ -34,7 +34,7 @@ const Home = () => {
       <Link to={ECOMMERCE_URL}>
         <img src={day2} alt="Day 2" />
       </Link>
-      <Link to="/">
+      <Link to={PIANO_URL}>
         <img src={day3} alt="Day 3" />
       </Link>
       <Link to="/">

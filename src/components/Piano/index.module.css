@@ -1,0 +1,35 @@
+:root {
+  --teal: #37b2c3;
+  --yellow: #ffd200;
+  --pink: #f40082;
+}
+
+.root {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.white-keys) {
+  fill: white;
+}
+
+:global(.white-keys):hover {
+  fill: var(--yellow);
+  cursor: pointer;
+}
+
+:global(.black-keys) {
+  fill: black;
+}
+
+:global(.black-keys):hover {
+  fill: var(--pink);
+  cursor: pointer;
+}

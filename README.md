@@ -6,8 +6,9 @@ The challenges are rendered on different pages of a single app. Home page menu i
 
 ## Challenge briefs
 
-1. [Pomodoro timer](challenges/1/README.md)
-2. [eCommerce component](challenges/2/README.md)
+1. [Pomodoro timer](src/components/Pomodoro/README.md)
+2. [eCommerce component](src/components/ECommerce/README.md)
+3. [Piano keyboard](src/components/Piano/3/README.md)
 
 ## Other info
 
