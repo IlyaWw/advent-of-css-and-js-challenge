@@ -10,6 +10,7 @@ The challenges are rendered on different pages of a single app. Home page menu i
 2. [eCommerce component](src/components/ECommerce/README.md)
 3. [Piano keyboard](src/components/Piano/README.md)
 4. [Computer keyboard](src/components/Keyboard/README.md)
+5. [Podcast episodes](src/components/Podcast/README.md)
 
 ## Other info
 

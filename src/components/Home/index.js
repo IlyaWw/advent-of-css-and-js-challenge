@@ -6,6 +6,7 @@ import {
   ECOMMERCE_URL,
   PIANO_URL,
   KEYBOARD_URL,
+  PODCAST_URL,
 } from 'routesConfig';
 import day1 from './images/day-1.svg';
 import day2 from './images/day-2.svg';
@@ -45,7 +46,7 @@ const Home = () => {
       <Link to={KEYBOARD_URL}>
         <img src={day4} alt="Day 4" />
       </Link>
-      <Link to="/">
+      <Link to={PODCAST_URL}>
         <img src={day5} alt="Day 5" />
       </Link>
       <Link to="/">

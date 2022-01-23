@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;900&display=swap');
+
+:root {
+  --background-color: #f3f3f3;
+  --title-color: #a7a7a7;
+  --text-color: #4e4e4e;
+  --completed-color: #c9cdd1;
+
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.root {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0px 5.40459px 27.023px #e8eaef;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card > * {
+  width: 50%;
+}
+
+.cardImage {
+  transform: scale(1.05);
+  filter: drop-shadow(0px 5.40459px 32.4276px #453f3f);
+}
+
+.cardContent {
+  margin: 30px 30px 30px 60px;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.cardTitle {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--title-color);
+}
+
+.cardContent ul {
+  list-style: none;
+  line-height: 56px;
+  color: var(--text-color);
+}
+
+input[type='checkbox'] {
+  opacity: 0;
+  z-index: -100;
+  position: absolute;
+}
+
+.styledCheckbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.styledCheckbox::before {
+  content: '';
+  margin-right: 16px;
+  display: inline-block;
+  display: inline;
+  width: 1em;
+  height: 1em;
+  background-image: url('./images/checkbox--unchecked.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+input:checked + .styledCheckbox {
+  color: var(--completed-color);
+  text-decoration: line-through;
+}
+
+input:checked + .styledCheckbox::before {
+  background-image: url('./images/checkbox--checked.svg');
+}
+
+input:focus + .styledCheckbox::before {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
