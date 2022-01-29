@@ -11,6 +11,7 @@ The challenges are rendered on different pages of a single app. Home page menu i
 3. [Piano keyboard](src/components/Piano/README.md)
 4. [Computer keyboard](src/components/Keyboard/README.md)
 5. [Podcast episodes](src/components/Podcast/README.md)
+6. [Range slider](src/components/Slider/README.md)
 
 ## Other info
 

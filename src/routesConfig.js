@@ -5,6 +5,7 @@ export const ECOMMERCE_URL = '/ecommerce';
 export const PIANO_URL = '/piano';
 export const KEYBOARD_URL = '/keyboard';
 export const PODCAST_URL = '/podcast';
+export const SLIDER_URL = '/slider';
 
 const pomodoro = {
   element: lazy(() => import(`components/Pomodoro`)),
@@ -31,4 +32,9 @@ const podcast = {
   path: 'podcast',
 };
 
-export const routes = [pomodoro, ecommerce, piano, keyboard, podcast];
+const slider = {
+  element: lazy(() => import(`components/Slider`)),
+  path: 'slider',
+};
+
+export const routes = [pomodoro, ecommerce, piano, keyboard, podcast, slider];
